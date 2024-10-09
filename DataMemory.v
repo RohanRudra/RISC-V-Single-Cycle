@@ -6,21 +6,15 @@ module DataMemory(clk, reset, MemWrite, MemRead, Mem_Addr, wr_data, rd_data);
 
     reg [31:0] memory [63:0];
 
-    always@(posedge clk)
-    begin
-        //According to the sample instructions
-        memory[20] = 69;
-        memory[10] = 77;
-        memory[19] = 1;
+    initial begin
+        $readmemh("C:/Users/Rohan/Desktop/verilog codes/RISC-V-Single-Cycle/dataMem_init.mem", memory, 0, 63); // Specify range 0 to 63
+        //memory[10] <= 32'd69;
+        //memory[11] <= 32'd9;
     end
 
-    always@(posedge clk or posedge reset)
+    always@(posedge clk)
     begin
-        if(reset) begin
-            for(k=0;k<64;k=k+1)
-                memory[k] <= 32'b0;
-        end
-        else if(MemWrite) begin
+        if(MemWrite) begin
             memory[Mem_Addr] <= wr_data;
         end
     end
