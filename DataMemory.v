@@ -2,7 +2,6 @@ module DataMemory(clk, reset, MemWrite, MemRead, Mem_Addr, wr_data, rd_data);
     input clk,reset,MemRead,MemWrite;
     input [31:0] wr_data, Mem_Addr;
     output [31:0] rd_data; //this should not be reg because we don't want continuous assignment
-    integer k;
 
     reg [31:0] memory [63:0];
 

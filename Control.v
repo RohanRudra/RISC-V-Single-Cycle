@@ -12,7 +12,7 @@ module Control(instruction, Branch, MemRead, MemtoReg, ALUOp, MemWrite, ALUSrc, 
             7'b1100011: {ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch, ALUOp} <= 8'b000001_01; //beq
             7'b0010011: {ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch, ALUOp} <= 8'b101000_10; //addi & ori  //R-Format & I type
 
-            7'b0000000: {ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch, ALUOp} <= 8'b000000_00; //Do nothing 
+            //7'b0000000: {ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch, ALUOp} <= 8'b000000_00; //Do nothing 
         endcase
     end
 

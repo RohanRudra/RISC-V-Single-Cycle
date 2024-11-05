@@ -11,8 +11,7 @@ module ALU_Control(fun7, fun3, ALUOp, control_out);
             6'b10_1_000: control_out <= 4'b0110;
             6'b10_0_111: control_out <= 4'b0000;
             6'b10_0_110: control_out <= 4'b0001;
-
-            default: control_out <= 4'b0010; //general increment pc by 4
+            6'b00_0_XXX: control_out <= 4'b0010; //for lw and sw
         endcase
     end
 
